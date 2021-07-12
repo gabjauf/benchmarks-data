@@ -1,0 +1,25 @@
+{
+  "name": "benchmarks-data",
+  "version": "1.0.0",
+  "description": "Benchmarks data for different languages",
+  "homepage": "https://gabjauf.github.io/benchmarks",
+  "main": "generate-docker.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gabjauf/benchmarks.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/gabjauf/benchmarks/issues"
+  },
+  "dependencies": {
+    "tiny-glob": "^0.2.8",
+    "web-vitals": "^1.1.2"
+  },
+  "devDependencies": {
+    "got": "^11.8.2",
+    "js-yaml": "^4.1.0"
+  }
+}
