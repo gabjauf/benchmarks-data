@@ -21,7 +21,7 @@ function formatJobs() {
         {
           uses: "actions/checkout@v2",
           with: {
-            repository: 'https://github.com/gabjauf/benchmarks'
+            repository: 'gabjauf/benchmarks'
           }
         },
         {
