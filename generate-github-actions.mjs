@@ -17,9 +17,17 @@ function formatJobs() {
   languages.forEach(langConfig => {
     res[langConfig.name] = {
       "runs-on": "ubuntu-latest",
+      needs: ['pre-run'],
       steps: [
         {
           uses: "actions/checkout@v2"
+        },
+        {
+          uses: "actions/download-artifact@v2",
+          with: {
+            name: "results",
+            path: "public/results/"
+          },
         },
         {
           name: "Build docker images",
