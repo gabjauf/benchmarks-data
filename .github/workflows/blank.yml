@@ -117,10 +117,6 @@ jobs:
       - commit_results
     steps:
       - uses: actions/checkout@v2
-      - name: Install dependencies
-        run: npm i
-      - name: Build
-        run: npm run predeploy
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         if: github.ref == 'refs/heads/data'
