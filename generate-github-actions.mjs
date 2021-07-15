@@ -98,7 +98,7 @@ function formatJobs() {
       {
         name: "Configurate git",
         run: `git config --global user.name 'Benchmark bot'
-          git config --global user.email 'your-username@users.noreply.github.com'
+          git config --global user.email 'benchmark-bot@users.noreply.github.com'
           git config pull.rebase false
         `
       },
