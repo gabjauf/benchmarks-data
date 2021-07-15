@@ -70,6 +70,14 @@ function formatJobs() {
         run: "node ./benchmarks-source/compute-stats.js"
       },
       {
+        name: "Fetch all branches",
+        run: "git fetch --all"
+      },
+      {
+        name: "Checkout Data branch",
+        run: "git checkout data",
+      },
+      {
         name: "Configurate git",
         run: `git config --global user.name 'Benchmark bot'
           git config --global user.email 'your-username@users.noreply.github.com'

@@ -3,6 +3,7 @@
 target/
 node_modules/
 .DS_Store
+./public
 
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
