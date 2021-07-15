@@ -1,0 +1,66 @@
+[
+  {
+    "name": "zig",
+    "repository": "https://github.com/ziglang/zig",
+    "compile": true,
+    "packages": {
+      "nix": "nixpkgs.zig"
+    },
+    "extension": "zig",
+    "commands": {
+      "compile": "zig build-exe",
+      "version": "zig version"
+    }
+  },
+  {
+    "name": "rust",
+    "repository": "https://github.com/rust-lang/rust",
+    "compile": true,
+    "packages": {
+      "nix": "nixpkgs.rustc nixpkgs.gcc nixpkgs.cargo"
+    },
+    "extension": "rs",
+    "commands": {
+      "compile": "rustc",
+      "version": "rustc --version"
+    }
+  },
+  {
+    "name": "go",
+    "repository": "https://github.com/golang/go",
+    "compile": true,
+    "packages": {
+      "nix": "nixpkgs.go"
+    },
+    "extension": "go",
+    "commands": {
+      "compile": "go build",
+      "version": "go version"
+    }
+  },
+  {
+    "name": "nim",
+    "repository": "https://github.com/nim-lang/Nim",
+    "compile": true,
+    "packages": {
+      "nix": "nixpkgs.nim nixpkgs.gcc"
+    },
+    "commands": {
+      "compile": "nim c",
+      "version": "nim -v"
+    },
+    "extension": "nim"
+  },
+  {
+    "name": "elixir",
+    "repository": "https://github.com/elixir-lang/elixir",
+    "compile": false,
+    "packages": {
+      "nix": "nixpkgs.elixir"
+    },
+    "commands": {
+      "version": "elixir --version"
+    },
+    "extension": "ex"
+  }
+]

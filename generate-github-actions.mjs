@@ -19,10 +19,7 @@ function formatJobs() {
       "runs-on": "ubuntu-latest",
       steps: [
         {
-          uses: "actions/checkout@v2",
-          with: {
-            repository: 'gabjauf/benchmarks'
-          }
+          uses: "actions/checkout@v2"
         },
         {
           name: "Build docker images",

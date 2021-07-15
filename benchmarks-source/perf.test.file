@@ -1,0 +1,18 @@
+# started on Sun Apr 18 18:48:44 2021
+
+
+ Performance counter stats for 'nim c test.nim':
+
+           2041.59 msec task-clock                #    1.979 CPUs utilized          
+               954      context-switches          #    0.467 K/sec                  
+               115      cpu-migrations            #    0.056 K/sec                  
+             86681      page-faults               #    0.042 M/sec                  
+   <not supported>      cycles                                                      
+   <not supported>      instructions                                                
+   <not supported>      branches                                                    
+   <not supported>      branch-misses                                               
+
+       1.031732300 seconds time elapsed
+
+       1.604923000 seconds user
+       0.442979000 seconds sys

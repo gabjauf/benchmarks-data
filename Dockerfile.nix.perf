@@ -1,0 +1,5 @@
+FROM nixos/nix:latest
+
+RUN nix-env -iA nixpkgs.linuxPackages.perf nixpkgs.nodejs
+
+ENTRYPOINT [ "/bin/bash" ]
