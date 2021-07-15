@@ -47,7 +47,7 @@ function formatJobs() {
       ],
     };
   });
-  res['commit_results'] = {
+  res['compute'] = {
     "runs-on": "ubuntu-latest",
     needs: languages.map(el => el.name),
     steps: [
@@ -70,14 +70,30 @@ function formatJobs() {
         run: "node ./benchmarks-source/compute-stats.js"
       },
       {
-        name: "Fetch all branches",
-        run: "git fetch --all"
+        uses: "actions/upload-artifact@v2",
+        with: {
+          name: 'results',
+          path: `public/results/`
+        }
+      }
+    ],
+  };
+  res['commit_results'] = {
+    "runs-on": "ubuntu-latest",
+    "needs": ["compute"],
+    steps: [
+      {
+        uses: "actions/checkout@v2",
+        with: {
+          ref: 'data'
+        }
       },
       {
-        name: "Checkout Data branch",
-        run: `git stash
-          git checkout data
-          git stash pop`,
+        uses: "actions/download-artifact@v2",
+        with: {
+          name: 'results',
+          path: 'public/results/'
+        }
       },
       {
         name: "Configurate git",

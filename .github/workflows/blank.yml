@@ -112,28 +112,15 @@ jobs:
   commit_results:
     runs-on: ubuntu-latest
     needs:
-      - zig
-      - rust
-      - go
-      - nim
-      - elixir
+      - compute
     steps:
       - uses: actions/checkout@v2
+        with:
+          ref: data
       - uses: actions/download-artifact@v2
         with:
           name: results
           path: public/results/
-      - name: Deendency install
-        run: npm i
-      - name: Compute Stats
-        run: node ./benchmarks-source/compute-stats.js
-      - name: Fetch all branches
-        run: git fetch --all
-      - name: Checkout Data branch
-        run: |-
-          git stash
-                    git checkout data
-                    git stash pop
       - name: Configurate git
         run: |-
           git config --global user.name 'Benchmark bot'
@@ -152,9 +139,32 @@ jobs:
       - commit_results
     steps:
       - uses: actions/checkout@v2
+        with:
+          ref: data
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
-        if: github.ref == 'refs/heads/data'
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./public
+  compute:
+    runs-on: ubuntu-latest
+    needs:
+      - zig
+      - rust
+      - go
+      - nim
+      - elixir
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/download-artifact@v2
+        with:
+          name: results
+          path: public/results/
+      - name: Deendency install
+        run: npm i
+      - name: Compute Stats
+        run: node ./benchmarks-source/compute-stats.js
+      - uses: actions/upload-artifact@v2
+        with:
+          name: results
+          path: public/results/
