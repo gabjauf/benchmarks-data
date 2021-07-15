@@ -75,7 +75,9 @@ function formatJobs() {
       },
       {
         name: "Checkout Data branch",
-        run: "git checkout data",
+        run: `git stash
+          git checkout data
+          git stash pop`,
       },
       {
         name: "Configurate git",
